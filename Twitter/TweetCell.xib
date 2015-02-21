@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="81" id="KGk-i7-Jjw" customClass="TweetCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="81"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fTZ-Ta-EcF">
+                        <rect key="frame" x="8" y="8" width="48" height="48"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="48" id="rFD-wJ-RVk"/>
+                            <constraint firstAttribute="height" constant="48" id="uWO-xd-tcc"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bloomberg Business" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JgH-K9-naA">
+                        <rect key="frame" x="64" y="8" width="117.5" height="14.5"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@business" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XUM-m6-OAV">
+                        <rect key="frame" x="189" y="10" width="50" height="12.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="39m" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ypl-U1-CJX">
+                        <rect key="frame" x="289" y="5" width="22.5" height="20"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The USDA cites University of Oklahoma" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gy5-Qe-fXz">
+                        <rect key="frame" x="64" y="30" width="248" height="14.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="Gy5-Qe-fXz" firstAttribute="top" secondItem="Ypl-U1-CJX" secondAttribute="bottom" constant="5" id="1PI-8D-9rB"/>
+                    <constraint firstItem="Ypl-U1-CJX" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="2Ue-9g-PtL"/>
+                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="fTZ-Ta-EcF" secondAttribute="bottom" constant="8" id="A7w-1g-f1t"/>
+                    <constraint firstItem="JgH-K9-naA" firstAttribute="leading" secondItem="fTZ-Ta-EcF" secondAttribute="trailing" constant="8" id="A8e-QJ-aWM"/>
+                    <constraint firstItem="JgH-K9-naA" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="BHr-76-K3y"/>
+                    <constraint firstItem="fTZ-Ta-EcF" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="Rqd-v7-7Tb"/>
+                    <constraint firstItem="Gy5-Qe-fXz" firstAttribute="top" secondItem="XUM-m6-OAV" secondAttribute="bottom" constant="8" id="XeW-Ey-YKg"/>
+                    <constraint firstItem="Gy5-Qe-fXz" firstAttribute="leading" secondItem="fTZ-Ta-EcF" secondAttribute="trailing" constant="8" id="ZuC-SE-h9b"/>
+                    <constraint firstItem="XUM-m6-OAV" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="ayY-rc-Sia"/>
+                    <constraint firstAttribute="trailing" secondItem="Ypl-U1-CJX" secondAttribute="trailing" constant="8" id="eJx-MD-XhD"/>
+                    <constraint firstAttribute="trailing" secondItem="Gy5-Qe-fXz" secondAttribute="trailing" constant="8" id="eXD-bm-eMG"/>
+                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Gy5-Qe-fXz" secondAttribute="bottom" constant="8" id="iVV-4a-5Xm"/>
+                    <constraint firstItem="XUM-m6-OAV" firstAttribute="leading" secondItem="JgH-K9-naA" secondAttribute="trailing" constant="8" id="jEc-xM-zpM"/>
+                    <constraint firstItem="fTZ-Ta-EcF" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="pmt-dN-7Dg"/>
+                    <constraint firstItem="Ypl-U1-CJX" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="XUM-m6-OAV" secondAttribute="trailing" constant="8" id="uuc-mX-n7B"/>
+                    <constraint firstItem="Gy5-Qe-fXz" firstAttribute="top" secondItem="JgH-K9-naA" secondAttribute="bottom" constant="8" id="y7N-CD-uCZ"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="nameLabel" destination="JgH-K9-naA" id="Lzk-ma-YJD"/>
+                <outlet property="profileImageView" destination="fTZ-Ta-EcF" id="vXK-To-ECN"/>
+                <outlet property="screenNameLabel" destination="XUM-m6-OAV" id="XTw-1D-GAX"/>
+                <outlet property="sinceWhenLabel" destination="Ypl-U1-CJX" id="h2b-q1-VVO"/>
+                <outlet property="tweetTextLabel" destination="Gy5-Qe-fXz" id="3Fv-mm-q3w"/>
+            </connections>
+            <point key="canvasLocation" x="217" y="303.5"/>
+        </tableViewCell>
+    </objects>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>

@@ -8,6 +8,7 @@
 
 #import "LoginViewController.h"
 #import "TwitterClient.h"
+#import "TweetsViewController.h"
 
 @interface LoginViewController ()
 
@@ -20,6 +21,7 @@
     if (user != nil) {
       // tweets view
       NSLog(@"Welcome: %@", user.name);
+      [self presentViewController:[[UINavigationController alloc] initWithRootViewController:[[TweetsViewController alloc] init]] animated:YES completion:nil];
     } else {
       // error view
     }
@@ -29,6 +31,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+  self.title = @"Login";
 }
 
 - (void)didReceiveMemoryWarning {
