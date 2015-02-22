@@ -11,12 +11,15 @@
 #import "Tweet.h"
 #import "TwitterClient.h"
 #import "TweetCell.h"
+#import "EditTweetViewController.h"
+#import "TweetDetailsViewController.h"
 
 @interface TweetsViewController () <UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) NSArray *tweets;
 
 - (void)onLogout;
+- (void)onNew;
 
 @end
 
@@ -29,7 +32,9 @@
   self.tableView.dataSource = self;
 
   self.title = @"Home";
-  self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Logout" style:UIBarButtonItemStylePlain target:self action:@selector(onLogout)];
+  self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Sign Out" style:UIBarButtonItemStylePlain target:self action:@selector(onLogout)];
+
+  self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"New" style:UIBarButtonItemStylePlain target:self action:@selector(onNew)];
 
   [self.tableView registerNib:[UINib nibWithNibName:@"TweetCell" bundle:nil] forCellReuseIdentifier:@"TweetCell"];
 
@@ -59,6 +64,11 @@
   [User logout];
 }
 
+- (void)onNew {
+  EditTweetViewController *evc = [[EditTweetViewController alloc] init];
+  [self.navigationController pushViewController:evc animated:YES];
+}
+
 #pragma mark - Table view methods
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -69,10 +79,17 @@
   TweetCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TweetCell"];
 
   Tweet *tweet = self.tweets[indexPath.row];
-  NSLog(@"%@", tweet);
+  // NSLog(@"%@", tweet);
   [cell setTweet:tweet];
 
   return cell;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+  [tableView deselectRowAtIndexPath:indexPath animated:YES];
+  TweetDetailsViewController *vc = [[TweetDetailsViewController alloc] init];
+  //vc.movie = self.movies[indexPath.row];
+  [self.navigationController pushViewController:vc animated:YES];
 }
 
 /*

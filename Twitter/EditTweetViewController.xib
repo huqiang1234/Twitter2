@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EditTweetViewController">
+            <connections>
+                <outlet property="profileImageView" destination="VD6-aM-ac8" id="jND-uN-o7Z"/>
+                <outlet property="userName" destination="XVf-pK-7Bh" id="zFw-H2-vQT"/>
+                <outlet property="userScreenName" destination="Zla-US-HCE" id="6No-uJ-1Jx"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VD6-aM-ac8">
+                    <rect key="frame" x="24" y="82" width="48" height="48"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="48" id="F2P-h0-Ah6"/>
+                        <constraint firstAttribute="width" constant="48" id="wFA-X6-nhu"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Charlie Hu" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XVf-pK-7Bh">
+                    <rect key="frame" x="80" y="82" width="73.5" height="18"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@huqiang" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zla-US-HCE">
+                    <rect key="frame" x="80" y="101" width="59" height="16"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AOU-LJ-RlT">
+                    <rect key="frame" x="24" y="144" width="271" height="251"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="XVf-pK-7Bh" firstAttribute="leading" secondItem="VD6-aM-ac8" secondAttribute="trailing" constant="8" id="64P-I7-J8G"/>
+                <constraint firstAttribute="bottom" secondItem="AOU-LJ-RlT" secondAttribute="bottom" constant="173" id="7Dd-5D-fay"/>
+                <constraint firstItem="AOU-LJ-RlT" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="24" id="F8l-d3-i9N"/>
+                <constraint firstItem="Zla-US-HCE" firstAttribute="top" secondItem="XVf-pK-7Bh" secondAttribute="bottom" constant="1" id="Fla-Iu-wvx"/>
+                <constraint firstItem="VD6-aM-ac8" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="topMargin" constant="74" id="TEN-Un-hf6"/>
+                <constraint firstItem="AOU-LJ-RlT" firstAttribute="top" secondItem="VD6-aM-ac8" secondAttribute="bottom" constant="14" id="ZR5-BX-oZu"/>
+                <constraint firstItem="XVf-pK-7Bh" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="82" id="bIA-G5-uZd"/>
+                <constraint firstItem="VD6-aM-ac8" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leadingMargin" constant="16" id="oQj-mX-GeL"/>
+                <constraint firstItem="Zla-US-HCE" firstAttribute="leading" secondItem="VD6-aM-ac8" secondAttribute="trailing" constant="8" id="t0r-KK-23E"/>
+                <constraint firstAttribute="trailing" secondItem="AOU-LJ-RlT" secondAttribute="trailing" constant="25" id="yH1-Ta-QFC"/>
+            </constraints>
+            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+            <point key="canvasLocation" x="281" y="209"/>
+        </view>
+    </objects>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>

@@ -36,7 +36,7 @@
 - (void)setTweet:(Tweet *)tweet {
   [self.profileImageView setImageWithURL:[NSURL URLWithString:tweet.user.profileImageUrl]];
   self.nameLabel.text = tweet.user.name;
-  self.screenNameLabel.text = tweet.user.screenname;
+  self.screenNameLabel.text = [NSString stringWithFormat:@"@%@", tweet.user.screenname];
 
   self.sinceWhenLabel.text = [NSString stringWithFormat:@"%d m", 38];
   self.tweetTextLabel.text = tweet.text;

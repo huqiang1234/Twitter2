@@ -20,26 +20,26 @@
                             <constraint firstAttribute="height" constant="48" id="uWO-xd-tcc"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Bloomberg Business" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JgH-K9-naA">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bloomberg Business" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JgH-K9-naA">
                         <rect key="frame" x="64" y="24" width="117.5" height="14.5"/>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="@business" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XUM-m6-OAV">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@business" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XUM-m6-OAV">
                         <rect key="frame" x="189" y="26" width="50" height="12"/>
                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" ambiguous="YES" misplaced="YES" text="39m" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ypl-U1-CJX">
-                        <rect key="frame" x="289" y="21" width="22.5" height="20"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="39m" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ypl-U1-CJX">
+                        <rect key="frame" x="297" y="21" width="22.5" height="20"/>
                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="The USDA cites University of Oklahoma and this is an example" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gy5-Qe-fXz">
-                        <rect key="frame" x="64" y="46" width="248" height="29"/>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The USDA cites University of Oklahoma and this is an example" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gy5-Qe-fXz">
+                        <rect key="frame" x="64" y="46" width="256" height="29"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
@@ -51,7 +51,7 @@
                             <constraint firstAttribute="width" constant="19" id="2Mk-D6-sH3"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="waffletchnlgy retweeted" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Ee-Ng-cfZ">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="waffletchnlgy retweeted" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Ee-Ng-cfZ">
                         <rect key="frame" x="64" y="4" width="122" height="13.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -109,10 +109,13 @@
                     <constraint firstAttribute="bottom" secondItem="GDH-SF-lLy" secondAttribute="bottom" constant="8" id="dWi-X9-5w9"/>
                     <constraint firstAttribute="trailing" secondItem="Ypl-U1-CJX" secondAttribute="trailing" constant="8" id="eJx-MD-XhD"/>
                     <constraint firstAttribute="trailing" secondItem="Gy5-Qe-fXz" secondAttribute="trailing" constant="8" id="eXD-bm-eMG"/>
+                    <constraint firstItem="JgH-K9-naA" firstAttribute="top" secondItem="1Ee-Ng-cfZ" secondAttribute="bottom" constant="6.5" id="hzE-sK-6hi"/>
                     <constraint firstItem="bAa-MD-Axr" firstAttribute="leading" secondItem="GDH-SF-lLy" secondAttribute="trailing" constant="37" id="i7G-EP-c5K"/>
                     <constraint firstItem="XUM-m6-OAV" firstAttribute="leading" secondItem="JgH-K9-naA" secondAttribute="trailing" constant="8" id="jEc-xM-zpM"/>
                     <constraint firstItem="1Ee-Ng-cfZ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="4" id="jLo-K8-1aW"/>
                     <constraint firstItem="xlN-a7-WqU" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="37" id="jnn-Gn-dca"/>
+                    <constraint firstItem="XUM-m6-OAV" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="26" id="lxh-AU-bwd"/>
+                    <constraint firstItem="Ypl-U1-CJX" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="21" id="tuG-Kc-j9K"/>
                     <constraint firstItem="bAa-MD-Axr" firstAttribute="top" secondItem="Gy5-Qe-fXz" secondAttribute="bottom" constant="1" id="ud4-pL-Bmq"/>
                     <constraint firstItem="Ypl-U1-CJX" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="XUM-m6-OAV" secondAttribute="trailing" constant="8" id="uuc-mX-n7B"/>
                     <constraint firstAttribute="bottom" secondItem="bAa-MD-Axr" secondAttribute="bottom" constant="8" id="vlK-cn-qH8"/>
