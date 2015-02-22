@@ -10,4 +10,6 @@
 
 @interface EditTweetViewController : UIViewController
 
+- (void)setText:(NSString *)text;
+
 @end

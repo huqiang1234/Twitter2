@@ -63,6 +63,9 @@
                         <state key="normal" image="reply.png">
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
+                        <connections>
+                            <action selector="onReply:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="nKN-ya-q3W"/>
+                        </connections>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bAa-MD-Axr">
                         <rect key="frame" x="131" y="75" width="19" height="16"/>
@@ -73,6 +76,9 @@
                         <state key="normal" image="retweet.png">
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
+                        <connections>
+                            <action selector="onRetweet:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="zUe-9j-wzp"/>
+                        </connections>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sj3-07-D2x">
                         <rect key="frame" x="195" y="72" width="27" height="22"/>
@@ -83,6 +89,9 @@
                         <state key="normal" image="favorite.png">
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
+                        <connections>
+                            <action selector="onFavorite:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Bd5-5g-7Um"/>
+                        </connections>
                     </button>
                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The USDA cites University of Oklahoma and this is an example" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gy5-Qe-fXz">
                         <rect key="frame" x="63" y="41.5" width="256" height="29"/>

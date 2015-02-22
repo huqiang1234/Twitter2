@@ -14,7 +14,7 @@
 #import "EditTweetViewController.h"
 #import "TweetDetailsViewController.h"
 
-@interface TweetsViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface TweetsViewController () <UITableViewDataSource, UITableViewDelegate, TweetCellDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) NSArray *tweets;
 @property (nonatomic, strong) UIRefreshControl *refreshControl;
@@ -84,6 +84,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
   TweetCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TweetCell"];
   //TweetCell *cell = [[TweetCell alloc] init];
+  cell.delegate = self;
 
   Tweet *tweet = self.tweets[indexPath.row];
   // NSLog(@"%@", tweet);
@@ -110,6 +111,12 @@
     [self.tableView reloadData];
     [self.refreshControl endRefreshing];
   }];
+}
+
+- (void)tweetCell:(TweetCell *)cell replyTo:(NSString *)screenName {
+  EditTweetViewController *evc = [[EditTweetViewController alloc] init];
+  [evc setText:[NSString stringWithFormat:@"@%@ ", screenName]];
+  [self.navigationController pushViewController:evc animated:YES];
 }
 
 /*

@@ -9,6 +9,8 @@
 #import "TweetCell.h"
 #import "UIImageView+AFNetworking.h"
 #import "Tweet.h"
+#import "EditTweetViewController.h"
+#import "TwitterClient.h"
 
 @interface TweetCell ()
 @property (weak, nonatomic) IBOutlet UIImageView *profileImageView;
@@ -21,6 +23,9 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *profileImageViewTopConstaints;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *imageViewToRetweetIconConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *NameToRetweetTextConstraint;
+
+@property (nonatomic, strong) NSString *userScreenName;
+@property (nonatomic, strong) NSString *idString;
 
 - (void)updateElementConstaint:(id)view attribute:(NSLayoutAttribute)attribute relatedBy:(NSLayoutRelation)relatedBy constant:(CGFloat)constant;
 - (void)setRetweet:(BOOL)isRetweet username:(NSString *)username;
@@ -47,7 +52,9 @@
   [self setRetweet:tweet.isRetweet username:tweet.retweetUserName];
   [self.profileImageView setImageWithURL:[NSURL URLWithString:tweet.user.profileImageUrl]];
   self.nameLabel.text = tweet.user.name;
-  self.screenNameLabel.text = [NSString stringWithFormat:@"@%@", tweet.user.screenname];
+  self.userScreenName = tweet.user.screenname;
+  self.idString = tweet.idString;
+  self.screenNameLabel.text = [NSString stringWithFormat:@"@%@", self.userScreenName];
 
   self.tweetTextLabel.text = tweet.text;
   [self updateDurationLabel:tweet.createdAt];
@@ -100,6 +107,32 @@
   }
 
   self.sinceWhenLabel.text = durationString;
+}
+
+- (IBAction)onReply:(id)sender {
+  [self.delegate tweetCell:self replyTo:self.userScreenName];
+}
+
+- (IBAction)onRetweet:(id)sender {
+  [[TwitterClient sharedInstance] postReTweet:self.idString completion:^(NSError *error) {
+    if (error == nil) {
+      NSLog(@"Retweeted, %@", self.idString);
+    } else {
+      NSLog(@"error posting tweet, %@", error);
+    }
+  }];
+}
+
+- (IBAction)onFavorite:(id)sender {
+  NSDictionary *params = [[NSDictionary alloc] initWithObjects:[NSArray arrayWithObjects:self.idString, nil] forKeys:[NSArray arrayWithObjects:@"id", nil]];
+  [[TwitterClient sharedInstance] favoriteTweet:params completion:^(NSError *error) {
+    if (error == nil) {
+      NSLog(@"Favorited tweet, %@", self.idString);
+    } else {
+      NSLog(@"error posting tweet, %@", error);
+    }
+  }];
+
 }
 
 @end

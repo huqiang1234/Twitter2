@@ -34,9 +34,7 @@
     formatter.dateFormat = @"EEE MMM d HH:mm:ss Z y";
 
     self.createdAt = [formatter dateFromString:createdAtString];
-//    if (self.isRetweet) {
-//      self.retweetUserName =
-//    }
+    self.idString = dictionary[@"id_str"];
   }
 
   return self;

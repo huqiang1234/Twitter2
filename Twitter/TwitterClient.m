@@ -80,4 +80,31 @@ NSString * const kTwitterBaseUrl = @"https://api.twitter.com";
   }];
 }
 
+- (void)postTweet:(NSDictionary *)params completion:(void (^)(NSError *error))completion {
+  [self POST:@"1.1/statuses/update.json" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    NSLog(@"%@", responseObject);
+    completion(nil);
+  } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+    completion(error);
+  }];
+}
+
+- (void)postReTweet:(NSString *)idString completion:(void (^)(NSError *error))completion {
+  [self POST:[NSString stringWithFormat:@"1.1/statuses/retweet/%@.json", idString] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    NSLog(@"%@", responseObject);
+    completion(nil);
+  } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+    completion(error);
+  }];
+}
+
+- (void)favoriteTweet:(NSDictionary *)params completion:(void (^)(NSError *error))completion {
+  [self POST:@"1.1/favorites/create.json" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    NSLog(@"%@", responseObject);
+    completion(nil);
+  } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+    completion(error);
+  }];
+}
+
 @end
