@@ -16,7 +16,16 @@
 @property (weak, nonatomic) IBOutlet UILabel *screenNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *sinceWhenLabel;
 @property (weak, nonatomic) IBOutlet UILabel *tweetTextLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *topRetweetImageView;
+@property (weak, nonatomic) IBOutlet UILabel *topRetweetUserLabel;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *profileImageViewTopConstaints;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *imageViewToRetweetIconConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *NameToRetweetTextConstraint;
 
+- (void)updateElementConstaint:(id)view attribute:(NSLayoutAttribute)attribute relatedBy:(NSLayoutRelation)relatedBy constant:(CGFloat)constant;
+- (void)setRetweet:(BOOL)isRetweet username:(NSString *)username;
+
+-(void)updateDurationLabel:(NSDate *)date;
 
 @end
 
@@ -24,7 +33,8 @@
 
 - (void)awakeFromNib {
     // Initialization code
-  self.nameLabel.preferredMaxLayoutWidth = self.nameLabel.frame.size.width;
+  self.profileImageView.layer.cornerRadius = 3;
+  self.profileImageView.clipsToBounds = YES;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -34,17 +44,62 @@
 }
 
 - (void)setTweet:(Tweet *)tweet {
+  [self setRetweet:tweet.isRetweet username:tweet.retweetUserName];
   [self.profileImageView setImageWithURL:[NSURL URLWithString:tweet.user.profileImageUrl]];
   self.nameLabel.text = tweet.user.name;
   self.screenNameLabel.text = [NSString stringWithFormat:@"@%@", tweet.user.screenname];
 
-  self.sinceWhenLabel.text = [NSString stringWithFormat:@"%d m", 38];
   self.tweetTextLabel.text = tweet.text;
+  [self updateDurationLabel:tweet.createdAt];
 }
 
-- (void)layoutSubviews {
-  [super layoutSubviews];
-  self.nameLabel.preferredMaxLayoutWidth = self.nameLabel.frame.size.width;
+- (void)updateElementConstaint:(id)view attribute:(NSLayoutAttribute)attribute relatedBy:(NSLayoutRelation)relatedBy constant:(CGFloat)constant {
+  [self addConstraint:[NSLayoutConstraint constraintWithItem:view attribute:attribute relatedBy:relatedBy toItem:self attribute:attribute multiplier:1 constant:constant]];
+}
+
+- (void)setRetweet:(BOOL)isRetweet username:(NSString *)username {
+  if (isRetweet == NO) {
+    //[self.topRetweetImageView removeFromSuperview];
+    //[self.topRetweetUserLabel removeFromSuperview];
+    self.topRetweetImageView.hidden = YES;
+    self.topRetweetUserLabel.hidden = YES;
+    [self removeConstraint:self.imageViewToRetweetIconConstraint];
+    [self removeConstraint:self.NameToRetweetTextConstraint];
+    [self updateElementConstaint:self.profileImageView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual constant:12];
+    [self updateElementConstaint:self.nameLabel attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual constant:1];
+  } else {
+    self.topRetweetImageView.hidden = NO;
+    self.topRetweetUserLabel.hidden = NO;
+    self.topRetweetUserLabel.text = [NSString stringWithFormat:@"%@ retweeted", username];
+  }
+}
+
+-(void)updateDurationLabel:(NSDate *)date {
+  //Which calendar
+  NSString *durationString;
+  NSCalendar *calendar = [NSCalendar currentCalendar];
+
+  //Gets the componentized interval from the most recent time an activity was tapped until now
+
+  NSDateComponents *components= [calendar components:NSCalendarUnitDay|NSCalendarUnitHour|NSCalendarUnitMinute|NSCalendarUnitSecond fromDate:date toDate:[NSDate date] options:0];
+  NSInteger days = [components day];
+  NSInteger hours = [components hour];
+  NSInteger minutes = [components minute];
+  NSInteger seconds =[components second];
+
+  // Converts the components to a string and displays it in the duration label, updated via the timer
+
+  if (days > 0) {
+    durationString = [NSString stringWithFormat:@"%ldd", (long)days];
+  } else if (hours > 0) {
+    durationString = [NSString stringWithFormat:@"%ldh", (long)hours];
+  } else if (minutes > 0) {
+    durationString = [NSString stringWithFormat:@"%ldm", (long)minutes];
+  } else if (seconds > 0) {
+    durationString = [NSString stringWithFormat:@"%lds", (long)seconds];
+  }
+
+  self.sinceWhenLabel.text = durationString;
 }
 
 @end

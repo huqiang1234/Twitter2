@@ -13,7 +13,20 @@
 - (id)initWithDictionary:(NSDictionary *)dictionary {
   self = [super init];
   if (self) {
+    NSLog(@"tweet: %@", dictionary);
+
+    id retweetedTweet = dictionary[@"retweeted_status"];
+    if (retweetedTweet != nil) {
+      self.isRetweet = YES;
+      User *user = [[User alloc] initWithDictionary:dictionary[@"user"]];
+      self.retweetUserName = user.name;
+      dictionary = retweetedTweet;
+    } else {
+      self.isRetweet = NO;
+    }
+
     self.text = dictionary[@"text"];
+    [self.text stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     self.user = [[User alloc] initWithDictionary:dictionary[@"user"]];
 
     NSString *createdAtString = dictionary[@"created_at"];
@@ -21,6 +34,9 @@
     formatter.dateFormat = @"EEE MMM d HH:mm:ss Z y";
 
     self.createdAt = [formatter dateFromString:createdAtString];
+//    if (self.isRetweet) {
+//      self.retweetUserName =
+//    }
   }
 
   return self;

@@ -17,9 +17,11 @@
 @interface TweetsViewController () <UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) NSArray *tweets;
+@property (nonatomic, strong) UIRefreshControl *refreshControl;
 
 - (void)onLogout;
 - (void)onNew;
+- (void)onRefresh;
 
 @end
 
@@ -28,6 +30,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+  self.refreshControl = [[UIRefreshControl alloc] init];
+  [self.refreshControl addTarget:self action:@selector(onRefresh) forControlEvents:UIControlEventValueChanged];
+  [self.tableView insertSubview:self.refreshControl atIndex:0];
+
   self.tableView.delegate = self;
   self.tableView.dataSource = self;
 
@@ -38,7 +44,7 @@
 
   [self.tableView registerNib:[UINib nibWithNibName:@"TweetCell" bundle:nil] forCellReuseIdentifier:@"TweetCell"];
 
-  self.tableView.estimatedRowHeight = 150;
+  self.tableView.estimatedRowHeight = 120;
   self.tableView.rowHeight = UITableViewAutomaticDimension;
 
   [[TwitterClient sharedInstance] homeTimeLineWithParams:nil completion:^(NSArray *tweets, NSError *error) {
@@ -77,6 +83,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
   TweetCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TweetCell"];
+  //TweetCell *cell = [[TweetCell alloc] init];
 
   Tweet *tweet = self.tweets[indexPath.row];
   // NSLog(@"%@", tweet);
@@ -90,6 +97,19 @@
   TweetDetailsViewController *vc = [[TweetDetailsViewController alloc] init];
   //vc.movie = self.movies[indexPath.row];
   [self.navigationController pushViewController:vc animated:YES];
+}
+
+# pragma mark - UIRefreshControl
+
+- (void)onRefresh {
+  [[TwitterClient sharedInstance] homeTimeLineWithParams:nil completion:^(NSArray *tweets, NSError *error) {
+    self.tweets = tweets;
+    //for (Tweet *tweet in self.tweets) {
+    //  NSLog(@"image url: %@", tweet.user.profileImageUrl);
+    //}
+    [self.tableView reloadData];
+    [self.refreshControl endRefreshing];
+  }];
 }
 
 /*
