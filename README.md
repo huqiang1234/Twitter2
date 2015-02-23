@@ -32,4 +32,4 @@ Time spent: `13`
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
-![Screenshot](CharsLeft.png) to show chars left in edit view.
+<a href="CharsLeft.png">Screenshot</a> to show chars left in edit view.
