@@ -11,11 +11,12 @@
 #import "UIImageView+AFNetworking.h"
 #import "TwitterClient.h"
 
-@interface EditTweetViewController ()
+@interface EditTweetViewController () <UITextViewDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *profileImageView;
 @property (weak, nonatomic) IBOutlet UILabel *userName;
 @property (weak, nonatomic) IBOutlet UILabel *userScreenName;
 @property (weak, nonatomic) IBOutlet UITextView *tweetEditView;
+@property (weak, nonatomic) IBOutlet UILabel *charsLeftLabel;
 
 @property (nonatomic, strong) User *user;
 @property (nonatomic, strong) NSString *prefixText;
@@ -29,7 +30,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Tweet" style:UIBarButtonItemStylePlain target:self action:@selector(onTweet)];
+  self.tweetEditView.delegate = self;
+
+  self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Tweet" style:UIBarButtonItemStylePlain target:self action:@selector(onTweet)];
 
   self.user = [User currentUser];
   [self.profileImageView setImageWithURL:[NSURL URLWithString:self.user.profileImageUrl]];
@@ -40,6 +43,7 @@
   [self.tweetEditView becomeFirstResponder];
   self.tweetEditView.text = self.prefixText;
   self.tweetEditView.selectedRange = NSMakeRange(self.prefixText.length, 0);
+  self.charsLeftLabel.text = [NSString stringWithFormat:@"%ld", (long)(140 -self.prefixText.length)];
   
 }
 
@@ -63,8 +67,13 @@
 
 - (void)setText:(NSString *)text {
   self.prefixText = text;
-  //[self.tweetEditView setSelectable:YES];
-  //self.tweetEditView.selectedRange = NSMakeRange(text.length, 0);
+}
+
+#pragma mark - text view delegate methods
+
+- (void)textViewDidChange:(UITextView *)textView {
+  NSInteger charsLeft = 140 - textView.text.length;
+  self.charsLeftLabel.text = [NSString stringWithFormat:@"%ld", (long)charsLeft];
 }
 
 /*

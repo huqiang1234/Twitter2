@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EditTweetViewController">
             <connections>
+                <outlet property="charsLeftLabel" destination="FJw-u5-CbR" id="Yn5-Ju-j8u"/>
                 <outlet property="profileImageView" destination="VD6-aM-ac8" id="jND-uN-o7Z"/>
                 <outlet property="tweetEditView" destination="AOU-LJ-RlT" id="6lV-v9-GQC"/>
                 <outlet property="userName" destination="XVf-pK-7Bh" id="zFw-H2-vQT"/>
@@ -44,22 +45,30 @@
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="140" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FJw-u5-CbR">
+                    <rect key="frame" x="256.5" y="82" width="25.5" height="18"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="XVf-pK-7Bh" firstAttribute="leading" secondItem="VD6-aM-ac8" secondAttribute="trailing" constant="8" id="64P-I7-J8G"/>
                 <constraint firstAttribute="bottom" secondItem="AOU-LJ-RlT" secondAttribute="bottom" constant="173" id="7Dd-5D-fay"/>
+                <constraint firstAttribute="trailing" secondItem="FJw-u5-CbR" secondAttribute="trailing" constant="38" id="9Sg-M3-CPf"/>
                 <constraint firstItem="AOU-LJ-RlT" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="24" id="F8l-d3-i9N"/>
                 <constraint firstItem="Zla-US-HCE" firstAttribute="top" secondItem="XVf-pK-7Bh" secondAttribute="bottom" constant="1" id="Fla-Iu-wvx"/>
                 <constraint firstItem="VD6-aM-ac8" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="topMargin" constant="74" id="TEN-Un-hf6"/>
                 <constraint firstItem="AOU-LJ-RlT" firstAttribute="top" secondItem="VD6-aM-ac8" secondAttribute="bottom" constant="14" id="ZR5-BX-oZu"/>
                 <constraint firstItem="XVf-pK-7Bh" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="82" id="bIA-G5-uZd"/>
+                <constraint firstItem="FJw-u5-CbR" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="82" id="mk3-TX-HEc"/>
                 <constraint firstItem="VD6-aM-ac8" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leadingMargin" constant="16" id="oQj-mX-GeL"/>
                 <constraint firstItem="Zla-US-HCE" firstAttribute="leading" secondItem="VD6-aM-ac8" secondAttribute="trailing" constant="8" id="t0r-KK-23E"/>
                 <constraint firstAttribute="trailing" secondItem="AOU-LJ-RlT" secondAttribute="trailing" constant="25" id="yH1-Ta-QFC"/>
             </constraints>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
-            <point key="canvasLocation" x="281" y="209"/>
+            <point key="canvasLocation" x="-66" y="53"/>
         </view>
     </objects>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
