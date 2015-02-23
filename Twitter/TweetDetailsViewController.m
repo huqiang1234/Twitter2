@@ -113,7 +113,7 @@
   [self setRetweet:self.isRetweet username:self.retweetUserName];
   [self.profileImageView setImageWithURL:[NSURL URLWithString:self.profileImageURLString]];
   self.userNameLabel.text = self.username;
-  self.userScreenNameLabel.text = self.userScreenName;
+  self.userScreenNameLabel.text = [NSString stringWithFormat:@"@%@", self.userScreenName];
   self.tweetTextLabel.text = self.text;
 
   NSDateFormatter *formatter = [[NSDateFormatter alloc] init];

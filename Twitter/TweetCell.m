@@ -93,7 +93,7 @@
     [self removeConstraint:self.imageViewToRetweetIconConstraint];
     [self removeConstraint:self.NameToRetweetTextConstraint];
     [self updateElementConstaint:self.profileImageView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual constant:12];
-    [self updateElementConstaint:self.nameLabel attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual constant:1];
+    [self updateElementConstaint:self.nameLabel attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual constant:10];
   } else {
     self.topRetweetImageView.hidden = NO;
     self.topRetweetUserLabel.hidden = NO;
