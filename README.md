@@ -31,5 +31,3 @@ Time spent: `13`
 ![Video Walkthrough](Twitter.gif)
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
-
-<a href="CharsLeft.png">Screenshot</a> to show chars left in edit view.
