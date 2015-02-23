@@ -19,6 +19,8 @@
 @property (nonatomic, strong) NSString *idString;
 @property (nonatomic, assign) NSInteger favoriteCount;
 @property (nonatomic, assign) NSInteger retweetCount;
+@property (nonatomic, assign) BOOL retweeted;
+@property (nonatomic, assign) BOOL favorited;
 
 - (id)initWithDictionary:(NSDictionary *)dictionary;
 + (NSArray *)tweetsWithArray:(NSArray *)array;

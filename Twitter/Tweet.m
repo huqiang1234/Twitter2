@@ -38,6 +38,9 @@
 
     self.favoriteCount = [dictionary[@"favorite_count"] integerValue];
     self.retweetCount = [dictionary[@"retweet_count"] integerValue];
+
+    self.retweeted = [dictionary[@"retweeted"] boolValue];
+    self.favorited = [dictionary[@"favorited"] boolValue];
   }
 
   return self;

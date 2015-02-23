@@ -8,9 +8,11 @@
             <connections>
                 <outlet property="countFavoriteLabel" destination="GtK-vH-aZz" id="BTR-Vz-wyx"/>
                 <outlet property="countRetweetLabel" destination="EnE-45-z9r" id="1P8-Ur-f14"/>
+                <outlet property="favoriteButton" destination="kMD-w7-fJK" id="0Xc-es-DXv"/>
                 <outlet property="nameToRetweetNameConstraint" destination="g9a-Bo-pYj" id="aiX-mL-krx"/>
                 <outlet property="profileImageToRetweetConstraint" destination="WOG-Tv-9mf" id="eQR-fi-HSV"/>
                 <outlet property="profileImageView" destination="mgg-Yo-zUO" id="8cQ-3v-DQu"/>
+                <outlet property="retweetButton" destination="LJT-UH-CW3" id="kdA-vS-4Im"/>
                 <outlet property="topRetweetIconView" destination="AsA-e1-IwG" id="gnJ-No-5ze"/>
                 <outlet property="topRetweetUserLabel" destination="gol-3h-6Jj" id="H9J-Mz-fv1"/>
                 <outlet property="tweetDateLabel" destination="imD-WD-VCj" id="WYq-r3-oL7"/>

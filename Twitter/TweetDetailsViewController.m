@@ -24,6 +24,10 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *profileImageToRetweetConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *nameToRetweetNameConstraint;
 
+@property (weak, nonatomic) IBOutlet UIButton *retweetButton;
+@property (weak, nonatomic) IBOutlet UIButton *favoriteButton;
+
+
 @property (nonatomic, strong) NSString *username;
 @property (nonatomic, strong) NSString *userScreenName;
 @property (nonatomic, strong) NSString *profileImageURLString;
@@ -34,10 +38,17 @@
 @property (nonatomic, strong) NSString *idString;
 @property (nonatomic, assign) NSInteger favoriteCount;
 @property (nonatomic, assign) NSInteger retweetCount;
+@property (nonatomic, assign) BOOL retweeted;
+@property (nonatomic, assign) BOOL favorited;
 
 - (void)onReply;
 - (void)setRetweet:(BOOL)isRetweet username:(NSString *)username;
 - (void)updateElementConstaint:(id)view attribute:(NSLayoutAttribute)attribute relatedBy:(NSLayoutRelation)relatedBy constant:(CGFloat)constant;
+
+- (void)setRetweeted:(BOOL)retweeted;
+- (void)setFavorited:(BOOL)favorited;
+- (void)updateRetweetCount:(BOOL)retweeted;
+- (void)updateFavoriteCount:(BOOL)favorited;
 
 - (void)updateViewUI;
 
@@ -81,6 +92,8 @@
       NSLog(@"error posting tweet, %@", error);
     }
   }];
+  [self setRetweeted:YES];
+  [self updateRetweetCount:YES];
 }
 
 - (IBAction)onFavoriteButton:(id)sender {
@@ -92,6 +105,8 @@
       NSLog(@"error posting tweet, %@", error);
     }
   }];
+  [self setFavorited:YES];
+  [self updateFavoriteCount:YES];
 }
 
 - (void)updateViewUI {
@@ -108,6 +123,8 @@
   self.countFavoriteLabel.text = [NSString stringWithFormat:@"%ld Favorites", (long)self.favoriteCount];
   self.countRetweetLabel.text = [NSString stringWithFormat:@"%ld Retweets", (long)self.retweetCount];
 
+  [self setRetweeted:self.retweeted];
+  [self setFavorited:self.favorited];
 }
 
 - (void)setTweet:(Tweet *)tweet {
@@ -123,6 +140,8 @@
   self.text = tweet.text;
   self.favoriteCount = tweet.favoriteCount;
   self.retweetCount = tweet.retweetCount;
+  self.retweeted = tweet.retweeted;
+  self.favorited = tweet.favorited;
 }
 
 - (void)updateElementConstaint:(id)view attribute:(NSLayoutAttribute)attribute relatedBy:(NSLayoutRelation)relatedBy constant:(CGFloat)constant {
@@ -144,6 +163,40 @@
     self.topRetweetUserLabel.hidden = NO;
     self.topRetweetUserLabel.text = [NSString stringWithFormat:@"%@ retweeted", username];
   }
+}
+
+- (void)setRetweeted:(BOOL)retweeted {
+  if (retweeted) {
+    [self.retweetButton setImage:[UIImage imageNamed:@"retweet_on.png"] forState:UIControlStateNormal];
+  } else {
+    [self.retweetButton setImage:[UIImage imageNamed:@"retweet.png"] forState:UIControlStateNormal];
+  }
+}
+
+- (void)setFavorited:(BOOL)favorited {
+  if (favorited) {
+    [self.favoriteButton setImage:[UIImage imageNamed:@"favorite_on.png"] forState:UIControlStateNormal];
+  } else {
+    [self.favoriteButton setImage:[UIImage imageNamed:@"favorite.png"] forState:UIControlStateNormal];
+  }
+}
+
+- (void)updateRetweetCount:(BOOL)retweeted {
+  if (retweeted) {
+    self.retweetCount += 1;
+  } else {
+    self.retweetCount -= 1;
+  }
+  self.countRetweetLabel.text = [NSString stringWithFormat:@"%ld Retweets", (long)self.retweetCount];
+}
+
+- (void)updateFavoriteCount:(BOOL)favorited {
+  if (favorited) {
+    self.favoriteCount += 1;
+  } else {
+    self.favoriteCount -= 1;
+  }
+  self.countFavoriteLabel.text = [NSString stringWithFormat:@"%ld Favorites", (long)self.favoriteCount];
 }
 
 /*

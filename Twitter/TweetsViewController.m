@@ -96,9 +96,7 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
   [tableView deselectRowAtIndexPath:indexPath animated:YES];
   TweetDetailsViewController *vc = [[TweetDetailsViewController alloc] init];
-  //[vc setTweet:tweet];
   [vc setTweet:self.tweets[indexPath.row]];
-  //vc.movie = self.movies[indexPath.row];
   [self.navigationController pushViewController:vc animated:YES];
 }
 
@@ -120,15 +118,6 @@
   [evc setText:[NSString stringWithFormat:@"@%@ ", screenName]];
   [self.navigationController pushViewController:evc animated:YES];
 }
-
-/*
-- (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-  TweetCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TweetCell"];
-  [cell setTweet:self.tweets[indexPath.row]];
-  CGSize size = [cell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
-  return size.height + 1;
-}
-*/
 
 /*
 #pragma mark - Navigation
