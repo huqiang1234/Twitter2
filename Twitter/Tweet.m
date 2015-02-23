@@ -35,6 +35,9 @@
 
     self.createdAt = [formatter dateFromString:createdAtString];
     self.idString = dictionary[@"id_str"];
+
+    self.favoriteCount = [dictionary[@"favorite_count"] integerValue];
+    self.retweetCount = [dictionary[@"retweet_count"] integerValue];
   }
 
   return self;

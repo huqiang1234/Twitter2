@@ -6,6 +6,17 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TweetDetailsViewController">
             <connections>
+                <outlet property="countFavoriteLabel" destination="GtK-vH-aZz" id="BTR-Vz-wyx"/>
+                <outlet property="countRetweetLabel" destination="EnE-45-z9r" id="1P8-Ur-f14"/>
+                <outlet property="nameToRetweetNameConstraint" destination="g9a-Bo-pYj" id="aiX-mL-krx"/>
+                <outlet property="profileImageToRetweetConstraint" destination="WOG-Tv-9mf" id="eQR-fi-HSV"/>
+                <outlet property="profileImageView" destination="mgg-Yo-zUO" id="8cQ-3v-DQu"/>
+                <outlet property="topRetweetIconView" destination="AsA-e1-IwG" id="gnJ-No-5ze"/>
+                <outlet property="topRetweetUserLabel" destination="gol-3h-6Jj" id="H9J-Mz-fv1"/>
+                <outlet property="tweetDateLabel" destination="imD-WD-VCj" id="WYq-r3-oL7"/>
+                <outlet property="tweetTextLabel" destination="6ca-1u-666" id="gex-9C-w0p"/>
+                <outlet property="userNameLabel" destination="5AV-Ce-eAr" id="y75-WX-WWr"/>
+                <outlet property="userScreenNameLabel" destination="WR3-2e-WaT" id="Boh-6f-FZR"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -21,7 +32,7 @@
                         <constraint firstAttribute="height" constant="16" id="orR-sR-gg7"/>
                     </constraints>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mgg-Yo-zUO">
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mgg-Yo-zUO">
                     <rect key="frame" x="9" y="97" width="48" height="48"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="48" id="MEU-U5-uG6"/>
@@ -93,6 +104,9 @@
                     <state key="normal" image="reply.png">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="onReplyButton:" destination="-1" eventType="touchUpInside" id="lsQ-1k-Cwi"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LJT-UH-CW3">
                     <rect key="frame" x="119" y="307" width="38" height="32"/>
@@ -103,6 +117,9 @@
                     <state key="normal" image="retweet.png">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="onRetweetButton:" destination="-1" eventType="touchUpInside" id="AHZ-eY-co7"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kMD-w7-fJK">
                     <rect key="frame" x="205" y="307" width="32" height="32"/>
@@ -113,6 +130,9 @@
                     <state key="normal" image="favorite.png">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="onFavoriteButton:" destination="-1" eventType="touchUpInside" id="oKL-u8-5ax"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
