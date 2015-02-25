@@ -12,8 +12,10 @@
 #import "User.h"
 #import "Tweet.h"
 #import "TweetsViewController.h"
+#import "SWRevealViewController.h"
+#import "HamburgerMenuViewController.h"
 
-@interface AppDelegate ()
+@interface AppDelegate () <SWRevealViewControllerDelegate>
 
 @end
 
@@ -29,7 +31,13 @@
   User *user = [User currentUser];
   if (user != nil) {
     NSLog(@"Welcome %@", user.name);
-    self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:[[TweetsViewController alloc] init]];
+    UINavigationController *rvc = [[UINavigationController alloc] initWithRootViewController:[[HamburgerMenuViewController alloc] init]];
+
+    UINavigationController *fvc = [[UINavigationController alloc] initWithRootViewController:[[TweetsViewController alloc] init]];
+
+    SWRevealViewController *srvc = [[SWRevealViewController alloc] initWithRearViewController:rvc frontViewController:fvc];
+    srvc.delegate = self;
+    self.window.rootViewController = srvc;
   } else {
     NSLog(@"Not logged in");
     self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:[[LoginViewController alloc] init]];

@@ -13,6 +13,7 @@
 #import "TweetCell.h"
 #import "EditTweetViewController.h"
 #import "TweetDetailsViewController.h"
+#import "SWRevealViewController.h"
 
 @interface TweetsViewController () <UITableViewDataSource, UITableViewDelegate, TweetCellDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -36,6 +37,10 @@
 
   self.tableView.delegate = self;
   self.tableView.dataSource = self;
+
+  SWRevealViewController *srvc = [self revealViewController];
+  [srvc panGestureRecognizer];
+  [srvc tapGestureRecognizer];
 
   self.title = @"Home";
   self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Sign Out" style:UIBarButtonItemStylePlain target:self action:@selector(onLogout)];
